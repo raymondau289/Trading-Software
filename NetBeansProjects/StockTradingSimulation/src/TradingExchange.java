@@ -3,8 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package stocktradingsimulation;
-
 import java.util.ArrayList;
 
 /**
@@ -17,17 +15,8 @@ import java.util.ArrayList;
 public class TradingExchange {
     
     public float shareIndex;
-    //public ArrayList<Trader> traders = new ArrayList<Trader>;
-    //public ArrayList<Stock> masterStock = new ArrayList<Stock>;
-    
-    public static void main(String[] args) {
-        StockMarket market = new StockMarket();
-        //As of right now, the method only tests the clock on the trading exchange.
-        while (market.getMonth()!=13){
-            market.incrementTime();
-            System.out.println(market.isHoliday() + "-" + market.getWeekdayName(market.getWeekdays(), market.getWeekday()) + " " + market.getDay() + "-" + market.getMonth() + " " + String.format("%02d",market.getHour()) + ":" + String.format("%02d", market.getMinute()));
-        }
-    }
+    //public ArrayList<Trader> traders = new ArrayList;
+    //public ArrayList<Stock> masterStock = new ArrayList();
 
     /**public void addCompany(Stock stock){
         //Need to fill.

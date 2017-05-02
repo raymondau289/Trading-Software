@@ -1,21 +1,22 @@
-package test;
-
 import java.util.HashMap;
 
 public class Portfolio 
 {
     // class variables
+    private static int counter=0;
+    private int clientID;
     private String clientName;
     private int clientCash;
     private HashMap<Stock,Integer> clientAssets;
-    private riskLevel clientRisk;
+    private RiskLevel clientRisk;
     
     // class constructors  
-    public Portfolio(String name, int cash, riskLevel Risk) 
+    public Portfolio(String name, int cash, RiskLevel Risk) 
     {
+        counter++;
+        clientID=counter;
         clientName = name;
         clientCash = cash;
-        clientRisk = Risk;
         clientAssets = new HashMap<>();
     }
 
@@ -79,15 +80,19 @@ public class Portfolio
     }
     
     // this method returns the clients current prefered risk level
-    public riskLevel getRiskLevel()
+    public RiskLevel getRiskLevel()
     {
         return clientRisk;
     }
     
     // this method is used to change the clients risk level
-    public void setRiskLevel(riskLevel RiskLevel)
+    public void setRiskLevel(RiskLevel RiskLevel)
     {
         clientRisk = RiskLevel;
+    }
+    
+    public int getClientID(){
+        return clientID;
     }
     
     // this method is used to add stock in the clients portfolio

@@ -1,24 +1,28 @@
-package test;
-
 public class Company 
 {
     // class variables
     private String companyName;
     private CompanyType companyType;
-    private riskLevel companyRisk;
+    private RiskLevel companyRisk;
     private int stockCount;
     private int stockValue;
     private boolean isInsolvent;
+    private Stock stock;
+    private static int counter=0;
+    private int companyID;
 
     // class constructor
-    public Company(String name, CompanyType type, riskLevel risk, int totalShares, int sharePrice) 
+    public Company(String name, CompanyType type, RiskLevel risk, int totalShares, int sharePrice) 
     {
+        counter++;
+        companyID=counter;
         companyName = name;
         companyType = type;
         companyRisk = risk;
         stockCount = totalShares;
         stockValue = sharePrice;
         isInsolvent = false;
+        stock = new Stock(companyID, name, sharePrice);
     }
     
     // class methods
@@ -48,13 +52,13 @@ public class Company
     }
     
     // this method is used to assign a risk level to the CompanyRisk attribute
-    public void setRisk(riskLevel risk)
+    public void setRisk(RiskLevel risk)
     {
         companyRisk = risk;
     }
     
     // this method returns the current companyRisk value.
-    public riskLevel getRisk()
+    public RiskLevel getRisk()
     {
         return companyRisk;
     }
@@ -75,5 +79,13 @@ public class Company
     public boolean isCompanyInsolvent()
     {
         return isInsolvent;
+    }
+
+    public int getCompanyID() {
+        return companyID;
+    }
+    
+    public Stock getStock(){
+        return stock;
     }
 }
