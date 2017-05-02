@@ -5,14 +5,14 @@ public class Company
     private CompanyType companyType;
     private RiskLevel companyRisk;
     private int stockCount;
-    private int stockValue;
+    private float stockValue;
     private boolean isInsolvent;
     private Stock stock;
     private static int counter=0;
     private int companyID;
 
     // class constructor
-    public Company(String name, CompanyType type, RiskLevel risk, int totalShares, int sharePrice) 
+    public Company(String name, CompanyType type, RiskLevel risk, int totalShares, float sharePrice) 
     {
         counter++;
         companyID=counter;
@@ -20,9 +20,9 @@ public class Company
         companyType = type;
         companyRisk = risk;
         stockCount = totalShares;
-        stockValue = sharePrice;
+        stockValue = (sharePrice/100);
         isInsolvent = false;
-        stock = new Stock(companyID, name, sharePrice);
+        stock = new Stock(companyID, name, stockValue);
     }
     
     // class methods

@@ -4,8 +4,7 @@ public class Stock
     private int stockID;
     private String companyName;
     private float stockPrice;
-    private int stockCount;
-
+    
     // class constructor
     public Stock(int id, String name, float value) 
     {
@@ -20,10 +19,6 @@ public class Stock
     public void setStockName(String newName)
     {
         companyName = newName;
-    }
-    
-    public void setStockCount(int count){
-        stockCount = count;
     }
     
     // this method returns the stock objects current companyName value.

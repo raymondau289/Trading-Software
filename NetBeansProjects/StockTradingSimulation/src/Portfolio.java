@@ -7,7 +7,7 @@ public class Portfolio
     private int clientID;
     private String clientName;
     private int clientCash;
-    private HashMap<Stock,Integer> clientAssets;
+    private final HashMap<Stock,Integer> clientAssets;
     private RiskLevel clientRisk;
     
     // class constructors  
@@ -61,11 +61,12 @@ public class Portfolio
         }   
     }
     
-    // this method returns the total value of all of the assets which the client currently has in their portfolio.
+    // this method returns the total value of all of the ass1ets which the client currently has in their portfolio.
     public float getAssetValue()
     {
         float total = 0;
-        for (Stock s : clientAssets.keySet()) 
+        int i=1;
+        for(Stock s : clientAssets.keySet()) 
         {
             float stockWorth = s.getStockPrice() * clientAssets.get(s);
             total += stockWorth;

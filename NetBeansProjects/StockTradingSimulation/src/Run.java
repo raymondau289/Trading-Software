@@ -16,6 +16,20 @@ public class Run {
     public static StockMarket market;
     public static ArrayList<Portfolio> portfolios = new ArrayList();
     public static ArrayList<Company> companies = new ArrayList();
+    public static ArrayList<Trader> randomTraders = new ArrayList();
+    private static final int data[][]={
+        {1505,0,1456,0,8464,4336,6424,6479,0,4827,0,4551,0,7774,109,4656,5344,5576,3181,9496},
+        {1672,0,4816,0,701,9571,498,6345,0,0,0,2538,0,9872,0,3907,0,7793,0,5022},
+        {9746,8107,0,0,8917,0,8152,8437,0,0,6957,5059,0,6348,3987,0,7542,9015,0,0},
+        {330,1893,0,0,7714,0,8526,1385,1319,0,0,636,0,842,9042,0,0,4514,6619,0},
+        {4077,0,0,0,4707,0,0,4272,8119,0,0,4535,0,5757,9088,0,0,1307,0,0},
+        {8054,0,0,0,3238,8593,0,9841,0,3073,8438,5244,0,1828,337,0,5857,7529,0,0},
+        {7841,0,6380,0,3701,0,0,2774,0,1354,0,9874,9837,0,452,8371,4400,4553,0,0},
+        {6187,0,0,0,3276,0,0,1833,8644,180,1563,5309,4283,0,5229,7946,8235,2337,0,0},
+        {2304,0,0,0,2447,1611,0,4188,1206,6464,0,6772,6332,9579,8315,4216,8622,6728,0,8969},
+        {8284,0,7348,6000,5735,8789,0,9446,0,7102,1042,5482,4548,0,5441,7604,0,7648,0,7513}};
+        
+    
     
     public Run(){
         exchange = new TradingExchange();
@@ -54,18 +68,47 @@ public class Run {
         companies.add(new Company("WyreCraft", CompanyType.HITECH, RiskLevel.HIGH, 42000, 637));
         companies.add(new Company("Upduff and Co", CompanyType.FOOD, RiskLevel.LOW, 36700, 340));
         companies.add(new Company("Downe and Co", CompanyType.HARD, RiskLevel.LOW, 40000, 99));
-        companies.add(new Company("Wazoolt", CompanyType.HITECH, RiskLevel.HIGH, 57000, 45));
+        companies.add(new Company("Skinners", CompanyType.PROPERTY, RiskLevel.HIGH, 57000, 368));
+        companies.add(new Company("Wazoolt", CompanyType.HITECH, RiskLevel.HIGH, 9800, 45));
+        companies.add(new Company("Whizzer and Chipps", CompanyType.FOOD, RiskLevel.LOW, 31000, 210));
         
-        //Test portfolios
-        for(int i=0;i<portfolios.size();i++){
-            System.out.println(portfolios.get(i).getClientID() + " " + portfolios.get(i).getName());
+        //Initialise portfolios.
+        for (int i=0;i<portfolios.size();i++){
+            for(int j=0;j<20;j++){
+                portfolios.get(i).addStock(companies.get(j).getStock(),data[i][j]);
+            }
         }
-        System.out.println("");
-        //Test companies
-        for(int i=0;i<companies.size();i++){
-            System.out.println(companies.get(i).getCompanyID() + " " + companies.get(i).getName());
+        for (int i=0;i<portfolios.size();i++){
+            System.out.println(portfolios.get(i).getTotalWorth());
         }
         
+        //Create traders 
+        randomTraders.add(new RandomTrader());
+        randomTraders.add(new RandomTrader());
+        randomTraders.add(new RandomTrader());
+        randomTraders.add(new RandomTrader());
+        
+       
+        //Distribute portfolios between random traders
+        //Needs to be rewritten with a loop but I am too tired to do it now.
+        randomTraders.get(0).addClient(portfolios.get(0));
+        randomTraders.get(0).addClient(portfolios.get(1));
+        randomTraders.get(0).addClient(portfolios.get(2));
+        randomTraders.get(1).addClient(portfolios.get(3));
+        randomTraders.get(1).addClient(portfolios.get(4));
+        randomTraders.get(1).addClient(portfolios.get(5));
+        randomTraders.get(2).addClient(portfolios.get(6));
+        randomTraders.get(2).addClient(portfolios.get(7));
+        randomTraders.get(3).addClient(portfolios.get(8));
+        randomTraders.get(3).addClient(portfolios.get(9));
+        
+        //Print total assets to test it        
+        for(Trader trader: randomTraders){
+            System.out.println("---");
+            System.out.println(trader.getTotalAssets());
+        }
+        
+        //This runs the market for the year.
         while (market.getMonth()!=13){
             market.incrementTime();
         //    System.out.println(market.isHoliday() + "-" + market.getWeekdayName(market.getWeekdays(), market.getWeekday()) + " " + market.getDay() + "-" + market.getMonth() + " " + String.format("%02d",market.getHour()) + ":" + String.format("%02d", market.getMinute()));
