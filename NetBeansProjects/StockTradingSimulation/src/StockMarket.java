@@ -167,40 +167,76 @@ public class StockMarket {
     public int getMonth() {
         return month;
     }
-
+    
+    /**
+     * 
+     * 
+     */
     public int getDay() {
         return day;
     }
 
+    /**
+     * 
+     * 
+     */
     public int getHour() {
         return hour;
     }
 
+    /**
+     * 
+     * 
+     */
     public int getMinute() {
         return minute;
     }
 
+    /**
+     * 
+     * 
+     */
     public boolean getLeapYear() {
         return isLeapYear;
     }
     
+    /**
+     * 
+     * 
+     */
     public int getWeekday() {
         return weekday;
     }
-
+    
+    /**
+     * 
+     * 
+     */
     public String[] getWeekdays() {
         return weekdays;
     }
     
+    /**
+     * 
+     * 
+     */
     //This method returns the correct string for the day of the week on any given day in the year.
     public String getWeekdayName(String[] array, int i) {
         return array[i];
     }
 
+    /**
+     * 
+     * 
+     */
     public boolean isHoliday() {
         return holiday;
     }
 
+    /**
+     * 
+     * 
+     */
     public MarketType getMarketType() {
         return marketType;
     }
