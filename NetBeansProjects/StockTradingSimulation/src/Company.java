@@ -36,7 +36,7 @@ public class Company
     /**
      * this method is used to assign a new name to the companyName attribute
      * 
-     * @param newName String this value is assigned to the companyName attribute
+     * @param newName this value is assigned to the companyName attribute
      */
     public void setName(String newName)
     {
@@ -46,7 +46,7 @@ public class Company
     /**
      * this method returns the current CompanyName value
      * 
-     * @return String this is the the current companyName attribute value.
+     * @return this is the the current companyName attribute value.
      */
     public String getName()
     {
@@ -56,7 +56,7 @@ public class Company
     /**
      * this method is used to assign a new type to the companyType attribute
      * 
-     * @param type CompanyType enum value which will be assigned to the companyType attribute.
+     * @param type a companyType value which will be assigned to the companyType attribute.
      */
     public void setType(CompanyType type)
     {
@@ -66,7 +66,7 @@ public class Company
     /**
      * this method returns the current CompanyType value
      * 
-     * @return CompanyType this is the current CompanyType attribute value.
+     * @return this is the current CompanyType attribute value.
      */
     public CompanyType getType()
     {
@@ -76,7 +76,7 @@ public class Company
     /**
      * this method is used to assign a risk level to the CompanyRisk attribute
      * 
-     * @param risk riskLevel this is the riskLevel value which will be assigned to the CompanyRisk attribute
+     * @param risk this is the riskLevel value which will be assigned to the CompanyRisk attribute
      */
     public void setRisk(RiskLevel risk)
     {
@@ -86,7 +86,7 @@ public class Company
     /**
      * this method returns the current companyRisk value.
      * 
-     * @return riskLevel this value is the current companyRisk value.
+     * @return this value is the current companyRisk value.
      */
     public RiskLevel getRisk()
     {
@@ -111,7 +111,7 @@ public class Company
     /**
      * this method is used to check if a company object is insolvent.
      * 
-     * @return boolean this is the current isInsolvent attribute value.
+     * @return this is the current isInsolvent attribute value.
      */
     public boolean isCompanyInsolvent()
     {
@@ -121,7 +121,7 @@ public class Company
     /**
      * this method returns the current companyID value
      * 
-     * @return int this is the current companyID atrribute value.
+     * @return this is the current companyID atrribute value.
      */
     public int getCompanyID() {
         return companyID;
@@ -130,7 +130,7 @@ public class Company
      /**
      * this method returns the current stock value.
      * 
-     * @return Stock this is the current stock attribute value.
+     * @return this is the current stock attribute value.
      */
     public Stock getStock(){
         return stock;
