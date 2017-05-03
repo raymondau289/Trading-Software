@@ -16,7 +16,7 @@ public class Run {
     public static StockMarket market;
     public static ArrayList<Portfolio> portfolios = new ArrayList();
     public static ArrayList<Company> companies = new ArrayList();
-    public static ArrayList<Trader> randomTraders = new ArrayList();
+    public static ArrayList<RandomTrader> randomTraders = new ArrayList();
     private static final int data[][]={
         {1505,0,1456,0,8464,4336,6424,6479,0,4827,0,4551,0,7774,109,4656,5344,5576,3181,9496},
         {1672,0,4816,0,701,9571,498,6345,0,0,0,2538,0,9872,0,3907,0,7793,0,5022},
@@ -107,9 +107,20 @@ public class Run {
         
         System.out.println(randomTraders.get(0).getTotalAssets() + "\n ----");
         
+        //Perform initial transaction
         for(int i=0;i<randomTraders.size();i++){
             randomTraders.get(i).sell();
         }
+        
+        //Add elements to for sale hashmap
+        for(int i=0;i<randomTraders.size();i++){
+            for(int j=0;j<randomTraders.get(i).getPortfolioSize();j++){
+                exchange.addForSale(randomTraders.get(i).getClient(j).getToBeSold());
+            }
+        }
+        
+        //Print the hashmap to test it.
+        exchange.printHashMap();
         
         //This runs the market for the year.
         while (market.getMonth()!=13){

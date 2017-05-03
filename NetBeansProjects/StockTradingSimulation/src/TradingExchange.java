@@ -5,6 +5,7 @@
  */
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -16,7 +17,11 @@ import java.util.HashMap;
 public class TradingExchange {
     
     private float shareIndex;
-    private HashMap<Stock,Integer> forSale; 
+    private HashMap<Stock,Integer> forSale;
+    
+    public TradingExchange(){
+        forSale = new HashMap();
+    }
 
     /**public void addCompany(Stock stock){
         //Need to fill.
@@ -44,8 +49,34 @@ public class TradingExchange {
         return shareIndex;
     }
     
-    public void addForSale(HashMap<Stock,Integer> forSale){
+    public void addForSale(HashMap<Stock,Integer> toSell){
         
+        for(Map.Entry<Stock,Integer> entry : toSell.entrySet()) {
+            Stock stock = entry.getKey();
+            int amount = entry.getValue();
+            
+            if(forSale.containsKey(stock)){
+                int currentAmount = forSale.get(stock);
+                amount = amount+currentAmount;
+                forSale.put(stock, amount);
+            }
+            else{
+                forSale.put(stock,amount);
+            }
+        }
+    }
+
+    public HashMap<Stock, Integer> getForSale() {
+        return forSale;
+    }
+    
+    //TEST METHOD
+    public void printHashMap(){
+        for(Stock s : forSale.keySet()){
+            String key = s.getStockName();
+            String value = forSale.get(s).toString();
+            System.out.println(key + " : " + value);
+        }
     }
     
     /**public float getSharePrice() {
