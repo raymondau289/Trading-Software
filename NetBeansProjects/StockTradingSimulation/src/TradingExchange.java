@@ -15,8 +15,6 @@ import java.util.ArrayList;
 public class TradingExchange {
     
     public float shareIndex;
-    //public ArrayList<Trader> traders = new ArrayList;
-    //public ArrayList<Stock> masterStock = new ArrayList();
 
     /**public void addCompany(Stock stock){
         //Need to fill.
@@ -46,17 +44,17 @@ public class TradingExchange {
         //Need to fill
     }*/
     
-    //Setter methods
-    public void setShareIndex(float shareIndex) {
-        this.shareIndex = shareIndex;
-    }
-    
     /**public void updateSharePrice(Stock stock){
         //Need to fill.
     }*/
     
     //Getter methods
-    public float getShareIndex() {
+    public float getShareIndex(ArrayList<Company> companies) {
+        float shareIndex=0;
+        for(Company company: companies){
+            shareIndex += company.getStock().getStockPrice();
+        }
+        shareIndex = (shareIndex/companies.size());
         return shareIndex;
     }
     

@@ -102,16 +102,13 @@ public class Run {
         randomTraders.get(3).addClient(portfolios.get(8));
         randomTraders.get(3).addClient(portfolios.get(9));
         
-        //Print total assets to test it        
-        for(Trader trader: randomTraders){
-            System.out.println("---");
-            System.out.println(trader.getTotalAssets());
-        }
+        //Print share index to test it
+        System.out.println(exchange.getShareIndex(companies));
         
         //This runs the market for the year.
         while (market.getMonth()!=13){
             market.incrementTime();
-        //    System.out.println(market.isHoliday() + "-" + market.getWeekdayName(market.getWeekdays(), market.getWeekday()) + " " + market.getDay() + "-" + market.getMonth() + " " + String.format("%02d",market.getHour()) + ":" + String.format("%02d", market.getMinute()));
+            //System.out.println(market.isHoliday() + "-" + market.getWeekdayName(market.getWeekdays(), market.getWeekday()) + " " + market.getDay() + "-" + market.getMonth() + " " + String.format("%02d",market.getHour()) + ":" + String.format("%02d", market.getMinute()));
         }
     }
 }
