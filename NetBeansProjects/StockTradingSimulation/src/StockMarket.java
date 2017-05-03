@@ -6,7 +6,8 @@
  */
 /**
  *
- * @author Sam Berkay
+ * @author Sam Berkay, Navtej Bhogal
+ * @version 1.0, 03 may 2017
  */
 public class StockMarket {
 
@@ -20,14 +21,20 @@ public class StockMarket {
     public boolean holiday = false;
     public MarketType marketType = MarketType.STABLE;
     
-    //General method to increment the time by recursively calling methods.
+    /**
+     * General method to increment the time by recursively calling methods.
+     * 
+     */
     public void incrementTime()
     {
         checkHoliday(); //Check to see whether it is a holiday on the first day of trading 
         incrementMinutes();
     }
     
-    //Specific method to increment the minutes.
+    /**
+     * Specific method to increment the minutes.
+     * 
+     */
     public void incrementMinutes()
     {
         //Reset minute timer to zero and increase the hour if appropriate.
@@ -40,7 +47,10 @@ public class StockMarket {
         }
     }
     
-    //Specific method to increment the hours.
+    /**
+     * Specific method to increment the hours.
+     * 
+     */
     public void incrementHour() {
         //Reset hour timer to zero and increase the day if appropriate.
         if (hour!=23){
@@ -52,7 +62,10 @@ public class StockMarket {
         }
     }
     
-    //Specific method to increment the days
+    /**
+     * Specific method to increment the days
+     * 
+     */
     public void incrementDay() {
         //If the month has 31 days, reset the day count and increment the month when the end of the month is reached.
         if ((month == 1 || month == 3 || month == 5 || month == 7 || month == 8 || month == 10 || month == 12) && day == 31){
@@ -92,7 +105,10 @@ public class StockMarket {
         checkHoliday();
     }
     
-    //Increments the weekdays to make add weekend functionality to close markets on the weekend
+    /**
+     * Increments the weekdays to make add weekend functionality to close markets on the weekend
+     * 
+     */
     public void incrementWeekDay(){
         weekday++;
         if (weekday == 7) {
@@ -101,13 +117,18 @@ public class StockMarket {
         
     }
     
-    //Method to increment the month
+    /**
+     * Method to increment the month
+     * 
+     */
     public void incrementMonth() {
         month++;
     }
     
-    
-    //Method to check whether it is currently a holiday or not.
+    /**
+     * Method to check whether it is currently a holiday or not.
+     * 
+     */
     public void checkHoliday() {
         if(weekday == 5 || weekday ==6)
         {
@@ -128,11 +149,21 @@ public class StockMarket {
     }
     
     //Setter methods.
+    
+    /**
+     * 
+     * 
+     */
     public void setHoliday(boolean holiday) {
         this.holiday = holiday;
     }
     
     //Getter methods.
+    
+    /**
+     * Setter methods.
+     * 
+     */
     public int getMonth() {
         return month;
     }
