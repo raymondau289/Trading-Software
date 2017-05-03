@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -14,7 +15,8 @@ import java.util.ArrayList;
 
 public class TradingExchange {
     
-    public float shareIndex;
+    private float shareIndex;
+    private HashMap<Stock,Integer> forSale; 
 
     /**public void addCompany(Stock stock){
         //Need to fill.
@@ -23,22 +25,6 @@ public class TradingExchange {
     /**public void removeInsolventCompany(){
      * //Need to fill
      */
-    
-    /**public void addTrader(){
-        //Need to fill
-    }*/
-    
-    /**public void removeTrader(){
-        //Need to fill
-    }*/
-    
-    /**public void addStock(){
-        //Need to fill
-    }*/
-    
-    /**public void removeStock(){
-        //Need to fill
-    }*/
     
     /**public void issueStock(){
         //Need to fill
@@ -52,10 +38,14 @@ public class TradingExchange {
     public float getShareIndex(ArrayList<Company> companies) {
         float shareIndex=0;
         for(Company company: companies){
-            shareIndex += company.getStock().getStockPrice();
+            shareIndex += company.getStock().getPrice();
         }
         shareIndex = (shareIndex/companies.size());
         return shareIndex;
+    }
+    
+    public void addForSale(HashMap<Stock,Integer> forSale){
+        
     }
     
     /**public float getSharePrice() {

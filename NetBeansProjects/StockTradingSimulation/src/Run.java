@@ -83,10 +83,10 @@ public class Run {
         }
         
         //Create traders 
-        randomTraders.add(new RandomTrader());
-        randomTraders.add(new RandomTrader());
-        randomTraders.add(new RandomTrader());
-        randomTraders.add(new RandomTrader());
+        randomTraders.add(new RandomTrader(TraderType.SELLER));
+        randomTraders.add(new RandomTrader(TraderType.SELLER));
+        randomTraders.add(new RandomTrader(TraderType.BALANCED));
+        randomTraders.add(new RandomTrader(TraderType.PURCHASER));
         
        
         //Distribute portfolios between random traders
@@ -104,6 +104,12 @@ public class Run {
         
         //Print share index to test it
         System.out.println(exchange.getShareIndex(companies));
+        
+        System.out.println(randomTraders.get(0).getTotalAssets() + "\n ----");
+        
+        for(int i=0;i<randomTraders.size();i++){
+            randomTraders.get(i).sell();
+        }
         
         //This runs the market for the year.
         while (market.getMonth()!=13){
