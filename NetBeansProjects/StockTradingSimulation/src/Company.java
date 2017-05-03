@@ -2,7 +2,7 @@
  * the company class is used to represent a company in our stock market simulation
  * 
  * @author Navtej bhogal, Sam Berkay
- * @version 1.00 03 may 2017
+ * @version 1.00, 03 may 2017
  */
 public class Company 
 {
