@@ -1,9 +1,3 @@
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 /**
  *
  * @author Sam Berkay, Navtej Bhogal
@@ -151,8 +145,9 @@ public class StockMarket {
     //Setter methods.
     
     /**
+     * This method is used to set the value of the holiday attribute to either true or false
      * 
-     * 
+     * @param holiday this is the boolean value which will be assigned to the holiday attribute
      */
     public void setHoliday(boolean holiday) {
         this.holiday = holiday;
@@ -161,87 +156,94 @@ public class StockMarket {
     //Getter methods.
     
     /**
-     * Setter methods.
+     * this method returns the current month attribute value
      * 
+     * @return this is the current month attribute value
      */
     public int getMonth() {
         return month;
     }
     
     /**
+     * this method returns the current day attribute value
      * 
-     * 
+     * @return this is the current day attribute value
      */
     public int getDay() {
         return day;
     }
 
     /**
+     * this method returns the current hour attribute value
      * 
-     * 
+     * @return this is the current hour attribute value
      */
     public int getHour() {
         return hour;
     }
 
     /**
+     * this method returns the current minute attribute value
      * 
-     * 
+     * @return this is the current minute attribute value
      */
     public int getMinute() {
         return minute;
     }
 
     /**
+     * this method returns the current isLeapYear attribute value
      * 
-     * 
+     * @return this is the current isLeapYear attribute value
      */
     public boolean getLeapYear() {
         return isLeapYear;
     }
     
     /**
+     * this method returns the current weekday attribute value
      * 
-     * 
+     * @return this is the current weekday attribute value
      */
     public int getWeekday() {
         return weekday;
     }
     
     /**
+     * this method returns the current weekdays attribute value
      * 
-     * 
+     * @return this is the current weekdays attribute value
      */
     public String[] getWeekdays() {
         return weekdays;
     }
     
     /**
+     * This method returns the correct string for the day of the week on any given day in the year.
      * 
-     * 
+     * @param array this is an string array containing the days of the week
+     * @param i this is the number of the day in the year
+     * @return a name of a day as a string
      */
-    //This method returns the correct string for the day of the week on any given day in the year.
     public String getWeekdayName(String[] array, int i) {
         return array[i];
     }
 
     /**
+     * this method returns the current holiday attribute value
      * 
-     * 
+     * @return this is the current holiday attribute value
      */
     public boolean isHoliday() {
         return holiday;
     }
 
     /**
+     * this method returns the current marketType attribute value
      * 
-     * 
+     * @return this is the current marketType attribute value
      */
     public MarketType getMarketType() {
         return marketType;
     }
-    
-    
-    
-    
 }
